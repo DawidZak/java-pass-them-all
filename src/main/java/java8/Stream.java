@@ -47,4 +47,11 @@ public class Stream {
         return true == integerList.stream().allMatch(p1);
 
     }
+
+    public boolean stream_6(){
+        List<Model> modelList = Arrays.asList(new Model(32),new Model(11),new Model(111));
+        int count = (int) modelList.stream().filter(x -> x.getId() > 35).count();
+        return count == 1;
+    }
+
 }

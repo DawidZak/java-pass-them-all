@@ -1,5 +1,6 @@
 package java8;
 
+import com.sun.media.sound.ModelStandardDirector;
 import org.junit.Test;
 
 import java.lang.reflect.Array;
@@ -50,10 +51,19 @@ public class Stream {
 
     }
 
+
     @Test
     public void stream_5(){
         List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
         assertEquals(true,false); //use Predicate<Integer> to pass this test with allMatch
 
+    }
+
+    @Test
+    public void stream_6(){
+        //count elements which has value > 35
+        int count = 0;
+
+        assertEquals(1,count);
     }
 }
