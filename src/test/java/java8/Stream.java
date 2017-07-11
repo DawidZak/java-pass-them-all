@@ -82,6 +82,10 @@ public class Stream {
         assertEquals(8,1);
     }
 
-    @Test
-    public void stream_9(){}
+    @Test //distinct
+    public void stream_9(){
+        List<Integer> integerList = Arrays.asList(8, 98, 312, 8);
+        int a = 0;
+        assertEquals(3,a);
+    }
 }
