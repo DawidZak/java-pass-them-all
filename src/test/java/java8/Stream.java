@@ -36,7 +36,7 @@ public class Stream {
     }
 
     //skip one element
-    @Test
+    @Test //#skip
     public void stream_3(){
         List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
         List<Integer> integerListSkip;////here use skip and pass variable to assert
@@ -44,7 +44,7 @@ public class Stream {
 
     }
 
-    @Test
+    @Test //#allMatch
     public void stream_4(){
         List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
         assertEquals(true,false); //here use allMatch;
@@ -52,18 +52,36 @@ public class Stream {
     }
 
 
-    @Test
+    @Test //#Predicate<Integer>
     public void stream_5(){
         List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
         assertEquals(true,false); //use Predicate<Integer> to pass this test with allMatch
 
     }
 
-    @Test
+    @Test //#count
     public void stream_6(){
         //count elements which has value > 35
         int count = 0;
 
         assertEquals(1,count);
     }
+
+    @Test //#forEachOrdered
+    public void stream_7(){
+        //what is diffrence? if you know change assertEquals
+        List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
+        integerList.stream().forEachOrdered(System.out::println);
+        integerList.stream().forEach(System.out::println);
+        assertEquals(true,false);
+    }
+
+    @Test //#findFirst+Optional
+    public void stream_8(){
+        List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
+        assertEquals(8,1);
+    }
+
+    @Test
+    public void stream_9(){}
 }
