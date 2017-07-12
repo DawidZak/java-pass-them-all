@@ -4,10 +4,12 @@ import com.sun.media.sound.ModelStandardDirector;
 import org.junit.Test;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.junit.Assert.*;
 import org.junit.Test;
@@ -82,10 +84,34 @@ public class Stream {
         assertEquals(8,1);
     }
 
-    @Test //distinct
+    @Test //#distinct
     public void stream_9(){
         List<Integer> integerList = Arrays.asList(8, 98, 312, 8);
         int a = 0;
         assertEquals(3,a);
+    }
+    @Test //#filter #map #sorted #findFirst
+    public void stream_10() {
+        //For strings starts with "c" convert to UpperCase then sort and find first
+        List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");
+        String string = "dd";
+
+        assertEquals("C1",string);
+    }
+
+    @Test //#IntStream
+    public void stream_11(){
+        //Replace wtih java 8 using IntStream
+        for(int x = 1;x < 11;x++){
+            System.out.println(x);
+        }
+
+        assertEquals(true,false);
+    }
+    @Test //#IntStream forEach
+    public void  stream_12(){
+        //Add 11 Model object to modelList with uniqe String
+        List<Model> modelList = new ArrayList<>();
+        assertEquals(true,false);
     }
 }

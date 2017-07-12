@@ -6,9 +6,13 @@ package java8;
 public class Model {
 
     private int id;
-
+    private String d;
     public Model(int id) {
         this.id = id;
+    }
+
+    public Model (String d){
+        this.d = d;
     }
 
     public int getId() {
@@ -17,5 +21,13 @@ public class Model {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "id=" + id +
+                ", d='" + d + '\'' +
+                '}';
     }
 }
