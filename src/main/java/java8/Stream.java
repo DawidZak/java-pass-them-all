@@ -1,9 +1,11 @@
 package java8;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.swing.text.html.Option;
+import java.util.*;
+import java.util.concurrent.ForkJoinPool;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by Dawid on 10.07.2017.
@@ -54,4 +56,66 @@ public class Stream {
         return count == 1;
     }
 
+    public void stream_7(){
+        //what is diffrence?
+        //forEach is not deterministic
+        //forEachOrdered is (try with parallel)
+        List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
+        integerList.stream().forEachOrdered(System.out::println);
+        integerList.stream().forEach(System.out::println);
+
+    }
+    //findFirst returns Optional
+    public void stream_8(){
+        List<Integer> integerList = Arrays.asList(8, 98, 312, 1);
+        Optional<Integer> optional = integerList.stream().findFirst();
+        int a = integerList.stream().findFirst().orElse(1);
+    }
+    //distinct
+    public void stream_9(){
+        List<Integer> integerList = Arrays.asList(8, 98, 312, 8);
+        int a = (int) integerList.stream().distinct().count();
+    }
+    //#filter #map #sorted #findFirst
+    public void stream_10(){
+        //For strings starts with "c" convert to UpperCase then sort and find first
+        List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");
+        String string = myList.stream()
+                .filter(x -> x.startsWith("c"))
+                .map(String::toUpperCase)
+                .sorted().findFirst()
+                .orElse("none");
+    }
+    //#IntStream
+    public void stream_11(){
+        IntStream.range(1,11).forEach(System.out::println);
+
+    }
+
+    public void  stream_12(){
+        //Add 11 Model object to modelList with uniqe String
+        List<Model> modelList = new ArrayList<>();
+        IntStream.range(1,12).forEach(x-> modelList.add(new Model("a"+x)));
+        modelList.forEach(System.out::println);
+    }
+
+    public void stream_13(){
+        //Get thread-pool uses to Parallel streams default 3
+        ForkJoinPool commonPool = ForkJoinPool.commonPool();
+        System.out.println(commonPool.getParallelism());
+    }
+
+    public void stream_14(){
+        //As JVM arguments use -Djava.util.concurrent.ForkJoinPool.common.parallelism=5
+        ForkJoinPool commonPool = ForkJoinPool.commonPool();
+        System.out.println(commonPool.getParallelism());
+    }
+
+     //#sorted+comparator+asc+firstElemenet
+    public void stream_15(){
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        Comparator<Model> modelComparator = Comparator.comparingInt(Model::getId);
+        myList.stream().sorted(modelComparator).forEach(System.out::println);
+
+    }
 }
