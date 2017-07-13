@@ -6,7 +6,9 @@ import org.junit.Test;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.ForkJoinPool;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -113,5 +115,25 @@ public class Stream {
         //Add 11 Model object to modelList with uniqe String
         List<Model> modelList = new ArrayList<>();
         assertEquals(true,false);
+    }
+    @Test //#ForkJoinPool
+    public void stream_13(){
+        //Get thread-pool uses to Parallel streams default 3
+        ForkJoinPool commonPool;
+        assertEquals(0,1); //here expresion
+    }
+
+    @Test //#ForkJoinPool
+    public void stream_14(){
+        //Change thread-pool amount used to Parallel stream with JVM arguments to 5
+        ForkJoinPool commonPool;
+        assertEquals(5,3);
+
+    }
+    @Test //#sorted+comparator+asc+firstElemenet+asc
+    public void stream_15(){
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        Comparator<Model> modelComparator;
+        assertEquals(11,0);// model id
     }
 }
