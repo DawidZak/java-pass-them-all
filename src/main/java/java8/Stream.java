@@ -118,4 +118,23 @@ public class Stream {
         myList.stream().sorted(modelComparator).forEach(System.out::println);
 
     }
+
+    //#sorted+reversed+firstElement+desc+comparator
+    public void stream_16(){
+        //Find the highest value
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        myList.stream().sorted(Comparator.comparing(Model::getId).reversed()).forEach(System.out::println);
+        myList.stream().sorted(Comparator.comparing(Model::getId).reversed()).findFirst().get().getId();
+    }
+
+     //#concat+java.util.stream.Stream
+    public void stream_17(){
+        List<String> stringList1 = Arrays.asList("aa","bb");
+        List<String> stringList2 = Arrays.asList("cc","dd");
+        List<String> stringList3 = new ArrayList<>(); // aa cc bb dd
+        java.util.stream.Stream stream = java.util.stream.Stream.concat(stringList1.stream(),stringList2.stream());
+        stream.forEach(x-> stringList3.add(x.toString()));
+        stringList3.forEach(System.out::println);
+
+    }
 }

@@ -4,10 +4,7 @@ import com.sun.media.sound.ModelStandardDirector;
 import org.junit.Test;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -132,8 +129,29 @@ public class Stream {
     }
     @Test //#sorted+comparator+asc+firstElemenet+asc
     public void stream_15(){
+        //Find the lowest value
         List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
         Comparator<Model> modelComparator;
         assertEquals(11,0);// model id
+    }
+
+    @Test //#sorted+reversed+firstElement+desc+comparator
+    public void stream_16(){
+        //Find the highest value
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        assertEquals(12312,1);
+
+
+    }
+
+    @Test //#concat+java.util.stream.Stream
+    public void stream_17(){
+        List<String> stringList1 = Arrays.asList("aa","bb");
+        List<String> stringList2 = Arrays.asList("cc","dd");
+        List<String> stringList3 = new ArrayList<>(); // aa cc bb dd
+
+
+        assertEquals(stringList3.size(),4);
+
     }
 }
