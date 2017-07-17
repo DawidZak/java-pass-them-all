@@ -154,4 +154,19 @@ public class Stream {
         assertEquals(stringList3.size(),4);
 
     }
+
+    @Test //check stream parallerlism
+    public void stream_18() {
+        List<String> stringList1 = Arrays.asList("aa", "bb");
+
+        assertEquals(false, true);// replace true with expression
+
+    }
+
+    @Test //mapToInt+sum+method reference
+    public void stream_19(){
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        int sum =  1; //change it
+        assertEquals(12445,sum);
+    }
 }
