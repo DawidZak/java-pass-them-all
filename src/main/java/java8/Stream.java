@@ -137,4 +137,16 @@ public class Stream {
         stringList3.forEach(System.out::println);
 
     }
+
+     //check stream parallerlism
+    public void stream_18(){
+        List<String> stringList1 = Arrays.asList("aa","bb");
+        stringList1.stream().isParallel();
+    }
+
+    public void stream_19(){
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        int sum =  myList.stream().mapToInt(Model::getId).sum();
+
+    }
 }
