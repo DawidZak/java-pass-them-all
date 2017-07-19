@@ -169,4 +169,11 @@ public class Stream {
         int sum =  1; //change it
         assertEquals(12445,sum);
     }
+
+    @Test //mapToInt+average
+    public void stream_20(){
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        Double result = 2d;
+        assertEquals(Double.valueOf(3111.25),result);
+    }
 }

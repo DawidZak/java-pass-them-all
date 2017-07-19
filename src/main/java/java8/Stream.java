@@ -143,10 +143,17 @@ public class Stream {
         List<String> stringList1 = Arrays.asList("aa","bb");
         stringList1.stream().isParallel();
     }
-
+    //mapToInt+sum+method reference
     public void stream_19(){
         List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
         int sum =  myList.stream().mapToInt(Model::getId).sum();
 
+    }
+    //mapToInt+average
+    public void stream_20(){
+        List<Model> myList = Arrays.asList(new Model(23),new Model(11), new Model(12312),new Model(99));
+        myList.stream().mapToInt(Model::getId).average().orElse(2d);
+        Double result = 2d;
+        System.out.println(myList.stream().mapToInt(Model::getId).average().orElse(2d));
     }
 }
